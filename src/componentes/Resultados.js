@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import Imagen from './imagen';
+import Pagina from './Pagina';
+
+
 class Resultados extends Component{
     mostrarImagenes = () => {
         const imagenes = this.props.imagenes;
@@ -11,10 +14,15 @@ class Resultados extends Component{
                 <div className="col-12 p-5 row">
                     {imagenes.map(imagen =>(
                         <Imagen
+                            key = {imagen.id}
                             imagen ={imagen}
                         />
                     ) )}
                 </div>
+                <Pagina 
+                    paginaAnt={this.props.paginaAnt}
+                    paginaSig={this.props.paginaSig}
+                />
             </React.Fragment>
         );
 

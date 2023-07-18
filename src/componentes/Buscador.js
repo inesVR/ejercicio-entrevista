@@ -19,7 +19,7 @@ class Buscador extends Component{
             <form onSubmit={this.getDatos}>
                 <div className="row">
                     <div className="form-group col-md-8">
-                        <input ref={this.busquedaRef} type="text" className="form-control form-control-lg" placeholder="Busca imagen"/>
+                        <input ref={this.busquedaRef} type="text" className="form-control form-control-lg"/>
 
                     </div>
                     <div className="form-group col-md-4">
