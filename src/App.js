@@ -61,12 +61,13 @@ class App extends Component {
     const termino = this.state.termino
     const pagina = this.state.pagina;
     //const url = 'https://dulces-petalos.herokuapp.com/?key=algo${termino}&per_page=20';
-    const url = 'https://pixabay.com/api/?key=38332260-5c20c88c63584aee6d369701c&q=${this.state.termino}&per_page=20&page=${pagina}';
-    //console.log(url);
+    const url = `https://pixabay.com/api/?key=38332260-5c20c88c63584aee6d369701c&q=${this.state.termino}&page=${pagina}`;
+    console.log(url);
     fetch(url)
       .then(respuesta => respuesta.json() )
       .then(resultado => this.setState({ imagenes : resultado.hits }) )
-  }
+      
+    }
 
   datosDeBusqueda = (termino) => {
     //console.log(termino);
@@ -97,7 +98,7 @@ class App extends Component {
           />
         </div>
         {this.state.termino}
-        <div className='row justify-content-center'>
+        <div className="row justify-content-center">
           <Resultados 
             imagenes = {this.state.imagenes}
             paginaAnt={this.paginaAnt}
