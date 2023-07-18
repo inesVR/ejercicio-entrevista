@@ -88,16 +88,20 @@ class App extends Component {
   render(){
     return (
       <div className="App container">
-        <div className="jumbotron">
-          <p className="lead text-center">Header</p>
+        <div className="navbar">
+          <div className='container'>
+            <a href="../" class="navbar">Floristería Dulces Pétalos</a>
+          </div>
         </div>
         <div className="jumbotron">
-          <p className="lead text-center"></p>
-          <Buscador
-            datosDeBusqueda={this.datosDeBusqueda}
-          />
+          <p className="lead text-center">
+            <Buscador
+              datosDeBusqueda={this.datosDeBusqueda}
+            />
+          </p>
+            
         </div>
-        {this.state.termino}
+        
         <div className="row justify-content-center">
           <Resultados 
             imagenes = {this.state.imagenes}
