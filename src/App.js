@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import Buscador from './componentes/Buscador';
 import Resultados from './componentes/Resultados';
-
+//import axios from 'axios';
 
 /*function App() {
   return (
@@ -19,8 +19,11 @@ class App extends Component {
   state = {
     termino: '',
     imagenes : [],
-    pagina : ''
+    pagina : '',
+    detallesProd : ''
   }
+
+ 
 
   paginaAnt = () => {
     //leer el estado de la pagina en la que estoy
@@ -60,8 +63,8 @@ class App extends Component {
   consultarApi = () => {
     const termino = this.state.termino
     const pagina = this.state.pagina;
-    //const url = 'https://dulces-petalos.herokuapp.com/?key=algo${termino}&per_page=20';
-    const url = `https://pixabay.com/api/?key=38332260-5c20c88c63584aee6d369701c&q=${this.state.termino}&page=${pagina}`;
+    const url = 'https://dulces-petalos.herokuapp.com/api/product';
+    //const url = `https://pixabay.com/api/?key=38332260-5c20c88c63584aee6d369701c&q=${this.state.termino}&page=${pagina}`;
     console.log(url);
     fetch(url)
       .then(respuesta => respuesta.json() )
@@ -85,14 +88,22 @@ class App extends Component {
     elemento.scrollIntoView('instant','start')
   }
 
+  
+
+  verDetallesProd = (producto) => {
+    this.setState({
+      detallesProd: producto
+    })
+  }
+
   render(){
     return (
       <div className="App container">
-        <div className="navbar">
-          <div className='container'>
-            <a href="../" class="navbar">Floristería Dulces Pétalos</a>
-          </div>
-        </div>
+        <header>
+        <a href="/">
+          <span>Dulces Petalos</span>
+        </a>
+      </header>
         <div className="jumbotron">
           <p className="lead text-center">
             <Buscador
@@ -102,11 +113,16 @@ class App extends Component {
             
         </div>
         
+       
+
         <div className="row justify-content-center">
           <Resultados 
             imagenes = {this.state.imagenes}
             paginaAnt={this.paginaAnt}
             paginaSig={this.paginaSig}
+            verDetallesProd={this.verDetallesProd}
+            setDetallesProd={(ref) => this.setState({ detallesProd: ref })}
+
           />
         </div>
       </div>

@@ -23,7 +23,7 @@ class Buscador extends Component{
 
                     </div>
                     <div className="form-group col-md-4">
-                        <input type="submit" className="btn btn-lg btn-danger" value="Buscar"/>
+                        <input type="submit" className="btn btn-lg btn-secondary" value="Buscar"/>
 
                     </div>
 
